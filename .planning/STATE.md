@@ -5,22 +5,22 @@ See: .planning/PROJECT.md
 
 **Core value:** Functional game loop — players can select letters, submit words, earn points, and advance through levels before time runs out.
 **Current phase:** Phase 2
-**Status:** Phase 2 context gathered — ready to plan
+**Status:** Phase 2 executing — Plan 03 at human-verify checkpoint
 
 ## Phase Status
 
 | Phase | Name | Status |
 |-------|------|--------|
 | 1 | Scaffold + Pure Java Model | Complete (2026-05-12) |
-| 2 | FXML Layout + CSS | Context gathered (2026-05-12) |
+| 2 | FXML Layout + CSS | In Progress — 02-01 done, 02-02 done, 02-03 at checkpoint |
 | 3 | Core Game Loop | Not Started |
 | 4 | Level Progression + Polish | Not Started |
 
 ## Current Position
 
 **Phase:** 2 — FXML Layout + CSS
-**Plan:** TBD — context captured; run /gsd-plan-phase 2
-**Progress:** [##########----------] Phase 1/4 done
+**Plan:** 03 — Controller Wiring + CSS Integration (at checkpoint:human-verify)
+**Progress:** [##########----------] Phase 1/4 done; Phase 2: 2.5/3 plans complete
 
 ## Performance Metrics
 
@@ -40,6 +40,8 @@ See: .planning/PROJECT.md
 - Track letter button state by array index, NOT by character (duplicate letter correctness)
 - TwistController must have zero JavaFX imports (JUnit testability)
 - Single endEpisode() entry point for both timer expiry and target-word-guessed paths
+- CSS attached in App.java start() via getStylesheets().add() — not FXML @import (Phase 2, Plan 03)
+- No null-check on App.class.getResource("styles.css") — NPE is correct fast-fail if file is missing
 
 ### Pitfalls to Watch
 - Surefire 2.x: `mvn test` reports 0 tests run silently — pin to 3.1.2
@@ -59,5 +61,5 @@ None
 ## Session Continuity
 
 **Last updated:** 2026-05-12
-**Stopped at:** Phase 2 context gathered (02-CONTEXT.md written)
-**Next action:** Run `/gsd-plan-phase 2` to create Phase 2 plans
+**Stopped at:** Phase 2 Plan 03 — checkpoint:human-verify (tasks 1 and 2 committed; awaiting mvn javafx:run visual verification)
+**Next action:** Human runs `mvn javafx:run` from project root, confirms 10-point visual checklist, types "approved" to complete Phase 2
