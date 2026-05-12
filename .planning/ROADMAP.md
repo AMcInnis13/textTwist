@@ -48,8 +48,16 @@ Cross-cutting constraints: zero JavaFX imports in model classes; `new File()` fo
 2. No inline setStyle() calls exist in any Java source file; all visual styling is in styles.css and applied via CSS class selectors
 3. The found-words ListView is bound to an ObservableList and scrolls when entries are added manually in a test run
 4. SceneBuilder opens twist.fxml without errors and all fx:id references resolve
-**Plans:** TBD
-**UI hint**: yes
+**Plans:** 3
+
+Plans:
+
+**Wave 1**
+- [x] 02-01-PLAN.md — Create styles.css with all game screen visual rules (11 CSS sections, all locked class names)
+- [x] 02-02-PLAN.md — Replace Phase 1 FXML stub with full BorderPane game screen layout (10 fx:ids locked)
+
+**Wave 2** *(blocked on Wave 1 completion)*
+- [ ] 02-03-PLAN.md — Wire PrimaryController @FXML fields + attach CSS in App.java; human-verify runtime render
 
 ### Phase 3: Core Game Loop
 **Goal:** A player can click letter buttons, build a guess, submit it, earn points, use Clear/Twist/Last Word, and race against the 120-second timer — all working correctly for a single episode
@@ -84,6 +92,6 @@ Cross-cutting constraints: zero JavaFX imports in model classes; `new File()` fo
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Scaffold + Pure Java Model | 3/3 | Complete | 2026-05-12 |
-| 2. FXML Layout + CSS | 0/? | Not started | - |
+| 2. FXML Layout + CSS | 2/3 | In Progress | - |
 | 3. Core Game Loop | 0/? | Not started | - |
 | 4. Level Progression + Polish | 0/? | Not started | - |
