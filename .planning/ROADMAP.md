@@ -23,7 +23,12 @@
 2. `mvn test` runs and reports all WordDictionary tests passing (isValidWord and randomWord verified; @Before existence check fires on missing file)
 3. TwistController.checkGuessWord() returns correct points (n*n*10) for valid words, 0 for invalid/duplicate words — verifiable via unit test or manual inspection with no FX runtime
 4. twister_words/3.txt through 10.txt are present at the project root and WordDictionary loads the correct file for a given letter count
-**Plans:** TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Maven scaffold: archetype generate, delete module-info.java, pin Surefire 3.1.2, verify blank window opens
+- [ ] 01-02-PLAN.md — WordDictionary implementation + JUnit 4 tests (isValidWord, randomWord, @Before file check)
+- [ ] 01-03-PLAN.md — TwistController implementation + JUnit 4 tests (checkGuessWord scoring, duplicate detection, shuffleLetters)
 
 ### Phase 2: FXML Layout + CSS
 **Goal:** The game screen FXML renders all UI regions correctly in SceneBuilder and at runtime, with all visual states driven entirely by the external CSS file
@@ -70,7 +75,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Scaffold + Pure Java Model | 0/? | Not started | - |
+| 1. Scaffold + Pure Java Model | 0/3 | Not started | - |
 | 2. FXML Layout + CSS | 0/? | Not started | - |
 | 3. Core Game Loop | 0/? | Not started | - |
 | 4. Level Progression + Polish | 0/? | Not started | - |
