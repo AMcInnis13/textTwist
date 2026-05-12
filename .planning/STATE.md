@@ -5,21 +5,21 @@ See: .planning/PROJECT.md
 
 **Core value:** Functional game loop — players can select letters, submit words, earn points, and advance through levels before time runs out.
 **Current phase:** Phase 2
-**Status:** Phase 1 complete — ready to start Phase 2
+**Status:** Phase 2 context gathered — ready to plan
 
 ## Phase Status
 
 | Phase | Name | Status |
 |-------|------|--------|
 | 1 | Scaffold + Pure Java Model | Complete (2026-05-12) |
-| 2 | FXML Layout + CSS | Not Started |
+| 2 | FXML Layout + CSS | Context gathered (2026-05-12) |
 | 3 | Core Game Loop | Not Started |
 | 4 | Level Progression + Polish | Not Started |
 
 ## Current Position
 
 **Phase:** 2 — FXML Layout + CSS
-**Plan:** TBD — run /gsd-discuss-phase 2 or /gsd-plan-phase 2
+**Plan:** TBD — context captured; run /gsd-plan-phase 2
 **Progress:** [##########----------] Phase 1/4 done
 
 ## Performance Metrics
@@ -59,4 +59,5 @@ None
 ## Session Continuity
 
 **Last updated:** 2026-05-12
-**Next action:** Run `/gsd-discuss-phase 2` then `/gsd-plan-phase 2` to start Phase 2 (FXML Layout + CSS)
+**Stopped at:** Phase 2 context gathered (02-CONTEXT.md written)
+**Next action:** Run `/gsd-plan-phase 2` to create Phase 2 plans
