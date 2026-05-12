@@ -97,13 +97,52 @@
 
 ## Traceability
 
-| Requirement | Phase |
-|-------------|-------|
-| SETUP-01 through SETUP-05 | Phase 1 |
-| DICT-01 through DICT-07 | Phase 1 |
-| MODEL-01 through MODEL-06 | Phase 1 |
-| GUI-01 through GUI-06 | Phase 2 |
-| CTRL-01 through CTRL-07 | Phase 2–3 |
-| TIMER-01 through TIMER-05 | Phase 3 |
-| PROG-01 through PROG-08 | Phase 3–4 |
-| VFX-01 through VFX-03 | Phase 4 |
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| SETUP-01 | Phase 1 | Pending |
+| SETUP-02 | Phase 1 | Pending |
+| SETUP-03 | Phase 1 | Pending |
+| SETUP-04 | Phase 1 | Pending |
+| SETUP-05 | Phase 1 | Pending |
+| DICT-01 | Phase 1 | Pending |
+| DICT-02 | Phase 1 | Pending |
+| DICT-03 | Phase 1 | Pending |
+| DICT-04 | Phase 1 | Pending |
+| DICT-05 | Phase 1 | Pending |
+| DICT-06 | Phase 1 | Pending |
+| DICT-07 | Phase 1 | Pending |
+| MODEL-01 | Phase 1 | Pending |
+| MODEL-02 | Phase 1 | Pending |
+| MODEL-03 | Phase 1 | Pending |
+| MODEL-04 | Phase 1 | Pending |
+| MODEL-05 | Phase 1 | Pending |
+| MODEL-06 | Phase 1 | Pending |
+| GUI-01 | Phase 2 | Pending |
+| GUI-02 | Phase 2 | Pending |
+| GUI-03 | Phase 2 | Pending |
+| GUI-04 | Phase 2 | Pending |
+| GUI-05 | Phase 2 | Pending |
+| GUI-06 | Phase 2 | Pending |
+| CTRL-01 | Phase 3 | Pending |
+| CTRL-02 | Phase 3 | Pending |
+| CTRL-03 | Phase 3 | Pending |
+| CTRL-04 | Phase 3 | Pending |
+| CTRL-05 | Phase 3 | Pending |
+| CTRL-06 | Phase 3 | Pending |
+| CTRL-07 | Phase 3 | Pending |
+| TIMER-01 | Phase 3 | Pending |
+| TIMER-02 | Phase 3 | Pending |
+| TIMER-03 | Phase 3 | Pending |
+| TIMER-04 | Phase 3 | Pending |
+| TIMER-05 | Phase 3 | Pending |
+| PROG-01 | Phase 3 | Pending |
+| PROG-03 | Phase 3 | Pending |
+| PROG-07 | Phase 3 | Pending |
+| PROG-08 | Phase 3 | Pending |
+| PROG-02 | Phase 4 | Pending |
+| PROG-04 | Phase 4 | Pending |
+| PROG-05 | Phase 4 | Pending |
+| PROG-06 | Phase 4 | Pending |
+| VFX-01 | Phase 4 | Pending |
+| VFX-02 | Phase 4 | Pending |
+| VFX-03 | Phase 4 | Pending |
