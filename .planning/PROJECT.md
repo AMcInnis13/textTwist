@@ -12,19 +12,18 @@ A fully playable game loop — the player can select letters, submit words, earn
 
 ### Validated
 
-(None yet — ship to validate)
+*(Validated in Phase 1: Scaffold + Pure Java Model — 2026-05-12)*
+- [x] Maven project configured with openjfx fxml archetype, group id cs120, artifact id lab06, JavaFX 21
+- [x] JUnit 4.12 test dependency in pom.xml
+- [x] WordDictionary class reads twister_words/[n].txt files (first line = word count, remaining lines = uppercase words)
+- [x] WordDictionary.isValidWord(String) validates a word against the dictionary for the current letter count
+- [x] WordDictionary.randomWord(int n) returns a random word of length n from the dictionary
+- [x] JUnit tests for WordDictionary (isValidWord and randomWord)
+- [x] TwistController class tracks: score (int), levelScore (int), level (int), targetWord (String), myDictionary (WordDictionary)
+- [x] TwistController.shuffleLetters() returns scrambled letters of the target word as List<String>
+- [x] TwistController.checkGuessWord(String) validates and returns points (n*n*10) or 0
 
 ### Active
-
-- [ ] Maven project configured with openjfx fxml archetype, group id cs120, artifact id lab06, JavaFX 21
-- [ ] JUnit 4.12 test dependency in pom.xml
-- [ ] WordDictionary class reads twister_words/[n].txt files (first line = word count, remaining lines = uppercase words)
-- [ ] WordDictionary.isValidWord(String) validates a word against the dictionary for the current letter count
-- [ ] WordDictionary.randomWord(int n) returns a random word of length n from the dictionary
-- [ ] JUnit tests for WordDictionary (isValidWord and randomWord)
-- [ ] TwistController class tracks: score (int), levelScore (int), level (int), targetWord (String), myDictionary (WordDictionary)
-- [ ] TwistController.shuffleLetters() returns scrambled letters of the target word as List<String>
-- [ ] TwistController.checkGuessWord(String) validates and returns points (n*n*10) or 0
 - [ ] JavaFX MVC GUI with FXML layout and external CSS file
 - [ ] Letter buttons (one per letter in current set), disabled when used, re-enabled on new guess
 - [ ] Guess word display showing letters in the order selected (up to 10)
@@ -88,4 +87,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-12 after initialization*
+*Last updated: 2026-05-12 — Phase 1 complete*

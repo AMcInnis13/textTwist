@@ -4,7 +4,7 @@
 
 ### Phases
 
-- [ ] **Phase 1: Scaffold + Pure Java Model** - Maven project runs; dictionary and game model fully unit-tested
+- [x] **Phase 1: Scaffold + Pure Java Model** - Maven project runs; dictionary and game model fully unit-tested *(Complete: 2026-05-12)*
 - [ ] **Phase 2: FXML Layout + CSS** - Game screen renders with all UI regions styled; no logic yet
 - [ ] **Phase 3: Core Game Loop** - Player can select letters, submit words, earn points, and play against the timer
 - [ ] **Phase 4: Level Progression + Polish** - All 8 levels function; game-over, win, and visual feedback states complete
@@ -28,13 +28,13 @@
 Plans:
 
 **Wave 1**
-- [ ] 01-01-PLAN.md — Maven scaffold: archetype generate, delete module-info.java, pin Surefire 3.1.2, verify blank window opens
+- [x] 01-01-PLAN.md — Maven scaffold: archetype generate, delete module-info.java, pin Surefire 3.1.2, verify blank window opens
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 01-02-PLAN.md — WordDictionary implementation + JUnit 4 tests (isValidWord, randomWord, @Before file check)
+- [x] 01-02-PLAN.md — WordDictionary implementation + JUnit 4 tests (isValidWord, randomWord, @Before file check)
 
 **Wave 3** *(blocked on Wave 2 completion)*
-- [ ] 01-03-PLAN.md — TwistController implementation + JUnit 4 tests (checkGuessWord scoring, duplicate detection, shuffleLetters)
+- [x] 01-03-PLAN.md — TwistController implementation + JUnit 4 tests (checkGuessWord scoring, duplicate detection, shuffleLetters)
 
 Cross-cutting constraints: zero JavaFX imports in model classes; `new File()` for dictionary I/O; Surefire 3.1.2
 
@@ -83,7 +83,7 @@ Cross-cutting constraints: zero JavaFX imports in model classes; `new File()` fo
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Scaffold + Pure Java Model | 0/3 | Ready to execute | - |
+| 1. Scaffold + Pure Java Model | 3/3 | Complete | 2026-05-12 |
 | 2. FXML Layout + CSS | 0/? | Not started | - |
 | 3. Core Game Loop | 0/? | Not started | - |
 | 4. Level Progression + Polish | 0/? | Not started | - |
