@@ -5,7 +5,7 @@
 ### Phases
 
 - [x] **Phase 1: Scaffold + Pure Java Model** - Maven project runs; dictionary and game model fully unit-tested *(Complete: 2026-05-12)*
-- [ ] **Phase 2: FXML Layout + CSS** - Game screen renders with all UI regions styled; no logic yet
+- [x] **Phase 2: FXML Layout + CSS** - Game screen renders with all UI regions styled; no logic yet *(Complete: 2026-05-12)*
 - [ ] **Phase 3: Core Game Loop** - Player can select letters, submit words, earn points, and play against the timer
 - [ ] **Phase 4: Level Progression + Polish** - All 8 levels function; game-over, win, and visual feedback states complete
 
@@ -57,7 +57,7 @@ Plans:
 - [x] 02-02-PLAN.md — Replace Phase 1 FXML stub with full BorderPane game screen layout (10 fx:ids locked)
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 02-03-PLAN.md — Wire PrimaryController @FXML fields + attach CSS in App.java; human-verify runtime render
+- [x] 02-03-PLAN.md — Wire PrimaryController @FXML fields + attach CSS in App.java; human-verify runtime render
 
 ### Phase 3: Core Game Loop
 **Goal:** A player can click letter buttons, build a guess, submit it, earn points, use Clear/Twist/Last Word, and race against the 120-second timer — all working correctly for a single episode
@@ -92,6 +92,6 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Scaffold + Pure Java Model | 3/3 | Complete | 2026-05-12 |
-| 2. FXML Layout + CSS | 2/3 | In Progress | - |
+| 2. FXML Layout + CSS | 3/3 | Complete | 2026-05-12 |
 | 3. Core Game Loop | 0/? | Not started | - |
 | 4. Level Progression + Polish | 0/? | Not started | - |

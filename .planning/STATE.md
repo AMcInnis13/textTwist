@@ -5,28 +5,28 @@ See: .planning/PROJECT.md
 
 **Core value:** Functional game loop — players can select letters, submit words, earn points, and advance through levels before time runs out.
 **Current phase:** Phase 2
-**Status:** Phase 2 executing — Plan 03 at human-verify checkpoint
+**Status:** Phase 2 complete — all 3 plans done (2026-05-12)
 
 ## Phase Status
 
 | Phase | Name | Status |
 |-------|------|--------|
 | 1 | Scaffold + Pure Java Model | Complete (2026-05-12) |
-| 2 | FXML Layout + CSS | In Progress — 02-01 done, 02-02 done, 02-03 at checkpoint |
+| 2 | FXML Layout + CSS | Complete (2026-05-12) |
 | 3 | Core Game Loop | Not Started |
 | 4 | Level Progression + Polish | Not Started |
 
 ## Current Position
 
-**Phase:** 2 — FXML Layout + CSS
-**Plan:** 03 — Controller Wiring + CSS Integration (at checkpoint:human-verify)
-**Progress:** [##########----------] Phase 1/4 done; Phase 2: 2.5/3 plans complete
+**Phase:** 2 — FXML Layout + CSS (complete)
+**Plan:** 03 — Controller Wiring + CSS Integration (complete)
+**Progress:** [####################] Phase 2/4 done; Phase 3 next
 
 ## Performance Metrics
 
 | Metric | Value |
 |--------|-------|
-| Phases complete | 1 / 4 |
+| Phases complete | 2 / 4 |
 | Requirements mapped | 34 / 34 |
 | Plans complete | 0 / ? |
 
@@ -61,5 +61,5 @@ None
 ## Session Continuity
 
 **Last updated:** 2026-05-12
-**Stopped at:** Phase 2 Plan 03 — checkpoint:human-verify (tasks 1 and 2 committed; awaiting mvn javafx:run visual verification)
-**Next action:** Human runs `mvn javafx:run` from project root, confirms 10-point visual checklist, types "approved" to complete Phase 2
+**Stopped at:** Phase 2 complete — all 3 plans done
+**Next action:** Begin Phase 3 (Core Game Loop) — PrimaryController event handlers, Timeline timer, letter button management
