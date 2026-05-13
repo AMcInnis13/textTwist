@@ -4,8 +4,8 @@
 See: .planning/PROJECT.md
 
 **Core value:** Functional game loop — players can select letters, submit words, earn points, and advance through levels before time runs out.
-**Current phase:** Phase 2
-**Status:** Phase 2 complete — all 3 plans done (2026-05-12)
+**Current phase:** Phase 3
+**Status:** Phase 3 planned — 2 plans ready to execute (2026-05-12)
 
 ## Phase Status
 
@@ -13,14 +13,14 @@ See: .planning/PROJECT.md
 |-------|------|--------|
 | 1 | Scaffold + Pure Java Model | Complete (2026-05-12) |
 | 2 | FXML Layout + CSS | Complete (2026-05-12) |
-| 3 | Core Game Loop | Not Started |
+| 3 | Core Game Loop | Ready to execute (2 plans) |
 | 4 | Level Progression + Polish | Not Started |
 
 ## Current Position
 
-**Phase:** 2 — FXML Layout + CSS (complete)
-**Plan:** 03 — Controller Wiring + CSS Integration (complete)
-**Progress:** [####################] Phase 2/4 done; Phase 3 next
+**Phase:** 3 — Core Game Loop (planned)
+**Plan:** Next: 03-01 (CSS feedback classes) → 03-02 (PrimaryController game loop)
+**Progress:** [####################----------] Phase 2/4 done; Phase 3 ready
 
 ## Performance Metrics
 
@@ -61,5 +61,5 @@ None
 ## Session Continuity
 
 **Last updated:** 2026-05-12
-**Stopped at:** Phase 2 complete — all 3 plans done
-**Next action:** Begin Phase 3 (Core Game Loop) — PrimaryController event handlers, Timeline timer, letter button management
+**Stopped at:** Phase 3 planned — 2 plans verified and committed
+**Next action:** /gsd-execute-phase 3 — Wave 1: CSS feedback classes; Wave 2: PrimaryController full game loop
