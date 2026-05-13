@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -18,12 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * JavaFX controller for the TextTwist game screen.
- * Wired to primary.fxml via FXMLLoader.
- * Phase 2: @FXML field declarations and ObservableList binding only.
- * Phase 3 adds event handlers, Timeline timer, and game model wiring.
- */
 public class PrimaryController {
 
     // --- FXML-injected nodes (fx:id must match field name exactly) ---
@@ -46,7 +41,9 @@ public class PrimaryController {
     private TwistController twistController;
     private Timeline gameTimeline;
     private List<Button> pressedButtons = new ArrayList<>();
-    private List<Button> lastWordButtons = new ArrayList<>();
+    private List<String> lastWordLetters = new ArrayList<>();
+    private int letterCount = 3;
+    private boolean targetWordGuessed = false;
     private int secondsLeft;
     private boolean playing;
 
@@ -56,19 +53,6 @@ public class PrimaryController {
     public void initialize() {
         foundWords = FXCollections.observableArrayList();
         foundWordsList.setItems(foundWords);
-        startGame();
-    }
-
-    // --- Game setup ---
-
-    private void startGame() {
-        twistController = new TwistController("twister_words");
-        twistController.beginEpisode(3);
-        playing = true;
-        secondsLeft = 120;
-        timeLabel.setText("2:00");
-        scoreLabel.setText("Score: 0");
-        levelLabel.setText("Level: 1");
 
         clearBtn.setOnAction(e -> {
             if (!playing) return;
@@ -98,9 +82,10 @@ public class PrimaryController {
             if (points > 0) {
                 foundWords.add(guessWord);
                 scoreLabel.setText("Score: " + twistController.getScore());
-                lastWordButtons = new ArrayList<>(pressedButtons);
+                lastWordLetters = pressedButtons.stream().map(Button::getText).collect(Collectors.toList());
                 lastWordBtn.setDisable(false);
                 if (guessWord.equalsIgnoreCase(twistController.getTargetWord())) {
+                    targetWordGuessed = true;
                     endEpisode();
                     return;
                 }
@@ -110,7 +95,7 @@ public class PrimaryController {
                     guessDisplay.getStyleClass().remove("guess-valid");
                     pressedButtons.clear();
                     guessDisplay.getChildren().clear();
-                    letterButtonArea.getChildren().forEach(n -> ((Button) n).setDisable(false));
+                    if (playing) { letterButtonArea.getChildren().forEach(n -> ((Button) n).setDisable(false)); }
                 });
                 pause.play();
             } else {
@@ -120,27 +105,60 @@ public class PrimaryController {
                     guessDisplay.getStyleClass().remove("guess-invalid");
                     pressedButtons.clear();
                     guessDisplay.getChildren().clear();
-                    letterButtonArea.getChildren().forEach(n -> ((Button) n).setDisable(false));
+                    if (playing) { letterButtonArea.getChildren().forEach(n -> ((Button) n).setDisable(false)); }
                 });
                 pause.play();
             }
         });
 
         lastWordBtn.setOnAction(e -> {
-            pressedButtons = new ArrayList<>(lastWordButtons);
-            for (Button btn : pressedButtons) {
-                btn.setDisable(true);
-            }
             guessDisplay.getChildren().clear();
-            for (Button btn : pressedButtons) {
-                Label tile = new Label(btn.getText());
-                tile.getStyleClass().add("letter-slot");
-                guessDisplay.getChildren().add(tile);
+            pressedButtons.clear();
+            List<Node> available = new ArrayList<>(letterButtonArea.getChildren());
+            for (String letter : lastWordLetters) {
+                for (Node node : available) {
+                    Button btn = (Button) node;
+                    if (!btn.isDisabled() && btn.getText().equals(letter)) {
+                        handleLetterButton(btn);
+                        available.remove(btn);
+                        break;
+                    }
+                }
             }
         });
 
-        buildLetterButtons();
+        startGame();
+    }
 
+    // --- Game setup ---
+
+    private void startGame() {
+        if (gameTimeline != null) gameTimeline.stop();
+        twistController = new TwistController("twister_words");
+        scoreLabel.setText("Score: 0");
+        beginNextEpisode(3);
+    }
+
+    private void beginNextEpisode(int newLetterCount) {
+        if (gameTimeline != null) gameTimeline.stop();
+        letterCount = newLetterCount;
+        twistController.beginEpisode(letterCount);
+        playing = true;
+        targetWordGuessed = false;
+        secondsLeft = 120;
+        pressedButtons.clear();
+        lastWordLetters.clear();
+        foundWords.clear();
+        guessDisplay.getChildren().clear();
+        letterButtonArea.getChildren().clear();
+        lastWordBtn.setDisable(true);
+        twistBtn.setDisable(false);
+        enterBtn.setDisable(false);
+        clearBtn.setDisable(false);
+        timeLabel.setText("2:00");
+        timeLabel.getStyleClass().removeAll("timer-warning", "timer-critical");
+        levelLabel.setText("Level: " + (letterCount - 2));
+        buildLetterButtons();
         gameTimeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> onTick()));
         gameTimeline.setCycleCount(Timeline.INDEFINITE);
         gameTimeline.play();
@@ -194,5 +212,33 @@ public class PrimaryController {
         lastWordBtn.setDisable(true);
         clearBtn.setDisable(true);
         letterButtonArea.getChildren().forEach(n -> ((Button) n).setDisable(true));
+
+        int threshold = (int)(0.25 * letterCount * letterCount * 10);
+        boolean thresholdMet = twistController.getLevelScore() >= threshold;
+
+        if (letterCount == 10 && (targetWordGuessed || thresholdMet)) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("TextTwist");
+            alert.setHeaderText(null);
+            alert.setContentText("You Win!");
+            alert.showAndWait();
+            startGame();
+        } else if (thresholdMet) {
+            letterCount++;
+            int newLevel = letterCount - 2;
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("TextTwist");
+            alert.setHeaderText(null);
+            alert.setContentText("Advanced to Level " + newLevel + "!");
+            alert.showAndWait();
+            beginNextEpisode(letterCount);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("TextTwist");
+            alert.setHeaderText(null);
+            alert.setContentText("Game Over — not enough points.");
+            alert.showAndWait();
+            startGame();
+        }
     }
 }
