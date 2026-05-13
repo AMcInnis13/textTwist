@@ -160,15 +160,17 @@
 
 /* ----------------------------------------------------------
    SECTION 9: Visual feedback classes for guess display
-   Phase 3 / Phase 4 toggles these on the guessDisplay HBox
-   to give correct / invalid feedback after Enter is pressed.
+   Phase 3 toggles guess-valid / guess-invalid on the guessDisplay
+   HBox to give valid / invalid feedback after Enter is pressed.
    ---------------------------------------------------------- */
-.guess-correct {
+.guess-valid {
+    -fx-background-color: #1b5e20;
     -fx-border-color: #43a047;
     -fx-border-width: 2;
 }
 
 .guess-invalid {
+    -fx-background-color: #b71c1c;
     -fx-border-color: #e53935;
     -fx-border-width: 2;
 }
