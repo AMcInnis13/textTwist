@@ -89,8 +89,12 @@ Plans:
 2. Completing Level 8 (10-letter words) triggers the game-won state with a visible overlay or dialog — distinct from the game-over state
 3. Valid word entry produces a visible green highlight or flash on the guess display; invalid word entry produces a visible red highlight or flash — both are perceptible without reading any text
 4. The end-of-episode result (advance / game over / game won) is shown as a clear overlay or dialog before the board resets or stops
-**Plans:** TBD
-**UI hint**: yes
+**Plans:** 1 plan
+
+Plans:
+
+**Wave 1**
+- [ ] 04-01-PLAN.md — PrimaryController: WR-01/WR-02/CR-01 bug fixes, beginNextEpisode() helper, endEpisode() routing with Alert dialogs for all three outcomes; human-verify full 8-level game loop
 
 ---
 
@@ -101,4 +105,4 @@ Plans:
 | 1. Scaffold + Pure Java Model | 3/3 | Complete | 2026-05-12 |
 | 2. FXML Layout + CSS | 3/3 | Complete | 2026-05-12 |
 | 3. Core Game Loop | 2/2 | Complete | 2026-05-12 |
-| 4. Level Progression + Polish | 0/? | Not started | - |
+| 4. Level Progression + Polish | 0/1 | Not started | - |
