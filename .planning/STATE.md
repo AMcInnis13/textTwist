@@ -14,13 +14,13 @@ See: .planning/PROJECT.md
 | 1 | Scaffold + Pure Java Model | Complete (2026-05-12) |
 | 2 | FXML Layout + CSS | Complete (2026-05-12) |
 | 3 | Core Game Loop | Complete (2026-05-12) |
-| 4 | Level Progression + Polish | Not Started |
+| 4 | Level Progression + Polish | Ready to Execute (1 plan) |
 
 ## Current Position
 
-**Phase:** 4 — Level Progression + Polish (not yet planned)
-**Plan:** N/A — discuss and plan Phase 4 next
-**Progress:** [##############################----------] Phase 3/4 done; Phase 4 next
+**Phase:** 4 — Level Progression + Polish (planned, ready to execute)
+**Plan:** 04-01-PLAN.md — Bug fixes + level progression + Alert dialogs (Wave 1, 1 plan)
+**Progress:** [##############################----------] Phase 3/4 done; Phase 4 planned
 
 ## Performance Metrics
 
@@ -64,5 +64,5 @@ None
 ## Session Continuity
 
 **Last updated:** 2026-05-12
-**Stopped at:** Phase 3 complete — all plans executed, verified, human-approved
-**Next action:** /gsd-discuss-phase 4 — Level Progression + Polish (8 levels, end-of-episode evaluation, overlays)
+**Stopped at:** Phase 4 planned — 1 plan created, verification passed, ready to execute
+**Next action:** /gsd-execute-phase 4

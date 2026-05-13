@@ -105,4 +105,4 @@ Plans:
 | 1. Scaffold + Pure Java Model | 3/3 | Complete | 2026-05-12 |
 | 2. FXML Layout + CSS | 3/3 | Complete | 2026-05-12 |
 | 3. Core Game Loop | 2/2 | Complete | 2026-05-12 |
-| 4. Level Progression + Polish | 0/1 | Not started | - |
+| 4. Level Progression + Polish | 0/1 | Ready to execute | - |
