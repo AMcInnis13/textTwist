@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Maven build output
+target/
+
+# IDE/session/temp folders
+Sessions/
+
+# Planning or local notes (optional)
+.planning/
+
+CLAUDE.md 
+
+.claude
