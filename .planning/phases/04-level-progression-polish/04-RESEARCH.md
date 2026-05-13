@@ -476,19 +476,22 @@ A2 is marked [VERIFIED] — TwistController.java line 52 confirms `levelScore = 
 
 ---
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Win condition at Level 8: threshold required or target-word-guessed sufficient?**
+   **[RESOLVED]** — `targetWordGuessed` boolean flag added to PrimaryController; win condition is `(letterCount == 10 && (targetWordGuessed || thresholdMet))`. This covers both the target-word-guessed entry path (where threshold may not be met) and the timer-expiry path. Implemented in Task 1 (field addition) and Task 2 (endEpisode() branching).
    - What we know: PROG-06 says "Game is won when Level 8 (10-letter words) is completed." PROG-03 says "Guessing the target word ends the episode immediately and advances to next level." The combination implies guessing the target word at Level 8 = game won, regardless of threshold.
    - What's unclear: The CONTEXT.md specifics say "Win condition: `letterCount == 10` AND player either guessed target word OR met threshold at timer expiry." This is partially locked, but the `endEpisode()` code skeleton must handle both the target-word-guessed entry (where threshold may not be met) and the timer-expiry entry.
    - Recommendation: Track a `boolean targetWordGuessed` flag, set to true before calling `endEpisode()` from the Enter handler. Win condition = `letterCount == 10 && (targetWordGuessed || thresholdMet)`. This matches the CONTEXT.md specifics verbatim.
 
 2. **CR-02 (PauseTransition / Twist race): fix or defer?**
+   **[DEFERRED]** — The playing guard (CR-01) is implemented in Task 1 (both PauseTransition onFinished blocks guard `if (playing)` before re-enabling buttons). The additional `activePause` cancel-on-twist fix (CR-02) is deferred to v2: the Twist-during-flash race is a rare edge-case interaction in a CS120 lab context, and CONTEXT.md does not include this as a locked decision for Phase 4. Full activePause cancel-on-twist is out of scope.
    - What we know: The Phase 3 review flagged that clicking Twist during a 500ms flash can corrupt state. The fix requires an `activePause` field and cancel-on-twist logic.
    - What's unclear: CONTEXT.md does not explicitly require this fix in Phase 4. It is not a WR or CR listed in the locked decisions.
    - Recommendation: Fix it in Phase 4 alongside CR-01 (which IS required) since both are in the same PauseTransition block. The `activePause` field pattern is low-risk and prevents a reproducible bug.
 
 3. **IN-02 (handler wiring inside startGame): refactor or leave?**
+   **[RESOLVED]** — Handler wiring moved to `initialize()` in Task 1 step 5. All four `setOnAction` blocks (clearBtn, twistBtn, enterBtn, lastWordBtn) are registered once in `initialize()`, not re-registered on every `startGame()` call.
    - What we know: Phase 3 review flagged moving `setOnAction` calls to `initialize()`. CONTEXT.md does not lock this refactor.
    - What's unclear: Whether this refactor is in Phase 4 scope.
    - Recommendation: Apply it as part of the Phase 4 cleanup pass, since `startGame()` is being restructured anyway. Zero behavioral risk.
