@@ -10,6 +10,16 @@ Sessions/
 # Planning or local notes (optional)
 .planning/
 
+<<<<<<< HEAD
 CLAUDE.md 
 
 .claude
+=======
+.idea
+
+.planning
+
+Claude.md
+
+.claude
+>>>>>>> 5f259bb (removed uneccessary files)
