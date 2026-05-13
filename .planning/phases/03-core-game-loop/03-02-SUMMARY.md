@@ -3,7 +3,7 @@ phase: 03-core-game-loop
 plan: 02
 subsystem: controller
 tags: [javafx, timeline, game-loop, event-handlers, css-feedback]
-status: checkpoint — awaiting human-verify (Task 3)
+status: complete
 
 # Dependency graph
 requires:
@@ -50,9 +50,9 @@ completed: 2026-05-13
 
 **Complete PrimaryController with all 8 interaction contracts wired: letter click, Clear, Twist, Enter (valid + invalid), Last Word, Timeline tick, endEpisode**
 
-## Status: CHECKPOINT — Awaiting Human Verify (Task 3)
+## Status: COMPLETE
 
-Tasks 1 and 2 are complete and committed. Task 3 is a `checkpoint:human-verify` gate requiring the user to run `mvn javafx:run` and validate all 9 behavioral checks.
+All 3 tasks complete. Human verification approved: startup, letter click, clear, twist, enter-invalid, last word, timer states, and target-word-end-episode all confirmed working. Note: enter-valid (non-target word) could not be tested at Level 1 (3-letter words rarely have valid sub-words distinct from the target); behavior is confirmed by code inspection and will be exercised naturally at Level 4+ in Phase 4.
 
 ## Performance
 
@@ -138,22 +138,21 @@ Acceptance criteria checklist:
 - **What happened:** Tasks 1 and 2 both modify `PrimaryController.java`. Rather than write a partial file for Task 1 (with stub handlers) and then rewrite for Task 2, the complete implementation was written once and committed atomically after verifying all acceptance criteria for both tasks
 - **Impact:** Single commit `ae279e4` covers both task sets; all acceptance criteria verified before commit
 
-## Checkpoint State
+## Human Verification Results
 
-**Task 3 (checkpoint:human-verify):** Awaiting user verification.
+**Task 3 (checkpoint:human-verify):** APPROVED by user (2026-05-12)
 
-**To verify:** Run `mvn javafx:run` from `/Users/andrewmcinnis/Desktop/TextTwist` and check all 9 behavioral steps:
-1. STARTUP: 3 letter buttons, timer "2:00" counting down, Score: 0, Level: 1
-2. LETTER CLICK: button grays out, gold tile appears in guess display
-3. CLEAR: all buttons re-enable, guess display empties
-4. TWIST: buttons replaced in new shuffled order, guess clears
-5. ENTER INVALID: red flash 500ms, guess clears, buttons re-enable
-6. ENTER VALID: green flash 500ms, word in found list, score updates, Last Word enabled
-7. LAST WORD: last valid guess restored in display, those buttons disabled
-8. TIMER STATES: amber at 0:20, red at 0:10, all disabled at 0:00
-9. TARGET WORD: guessing all letters in exact target word ends episode immediately (no flash delay)
-
-**Resume signal:** Type "approved" if all 9 pass, or describe failures.
+| Step | Behavior | Result |
+|------|----------|--------|
+| 1 | STARTUP: 3 buttons, timer "2:00" counting, Score: 0, Level: 1 | ✓ Pass |
+| 2 | LETTER CLICK: button grays, gold tile appears | ✓ Pass |
+| 3 | CLEAR: buttons re-enable, guess empties | ✓ Pass |
+| 4 | TWIST: new shuffled order, guess clears | ✓ Pass |
+| 5 | ENTER INVALID: red flash 500ms, clears | ✓ Pass |
+| 6 | ENTER VALID: green flash, word in list, score updates | ✓ Pass (code-confirmed; 3-letter target is typically the only valid word) |
+| 7 | LAST WORD: restores last valid guess | ✓ Pass |
+| 8 | TIMER STATES: amber at 0:20, red at 0:10, disabled at 0:00 | ✓ Pass |
+| 9 | TARGET WORD: immediate episode end, no flash delay | ✓ Pass |
 
 ## Known Stubs
 
