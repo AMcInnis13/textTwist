@@ -4,8 +4,8 @@
 See: .planning/PROJECT.md
 
 **Core value:** Functional game loop — players can select letters, submit words, earn points, and advance through levels before time runs out.
-**Current phase:** Phase 3
-**Status:** Phase 3 planned — 2 plans ready to execute (2026-05-12)
+**Current phase:** Phase 4
+**Status:** Phase 3 complete (2026-05-12) — Phase 4 ready to plan
 
 ## Phase Status
 
@@ -13,22 +13,22 @@ See: .planning/PROJECT.md
 |-------|------|--------|
 | 1 | Scaffold + Pure Java Model | Complete (2026-05-12) |
 | 2 | FXML Layout + CSS | Complete (2026-05-12) |
-| 3 | Core Game Loop | Ready to execute (2 plans) |
+| 3 | Core Game Loop | Complete (2026-05-12) |
 | 4 | Level Progression + Polish | Not Started |
 
 ## Current Position
 
-**Phase:** 3 — Core Game Loop (planned)
-**Plan:** Next: 03-01 (CSS feedback classes) → 03-02 (PrimaryController game loop)
-**Progress:** [####################----------] Phase 2/4 done; Phase 3 ready
+**Phase:** 4 — Level Progression + Polish (not yet planned)
+**Plan:** N/A — discuss and plan Phase 4 next
+**Progress:** [##############################----------] Phase 3/4 done; Phase 4 next
 
 ## Performance Metrics
 
 | Metric | Value |
 |--------|-------|
-| Phases complete | 2 / 4 |
+| Phases complete | 3 / 4 |
 | Requirements mapped | 34 / 34 |
-| Plans complete | 0 / ? |
+| Plans complete | 8 / 8 |
 
 ## Accumulated Context
 
@@ -49,6 +49,9 @@ See: .planning/PROJECT.md
 - CSS properties without `-fx-` prefix are silently ignored by JavaFX
 - CSS class accumulation on timer label — remove old class before adding new
 - Last Word button NPE — initialize as disabled; enable only after first successful word per episode
+- PauseTransition onFinished must guard `if (playing)` before re-enabling buttons (CR-01 from Phase 3 review)
+- lastWordButtons stores Button refs — Phase 4 level advance must store letters as List&lt;String&gt; instead (WR-01)
+- startGame() must clear foundWords + stop old Timeline before reinitializing (WR-02)
 
 ### Todos
 - [ ] Run `mvn javafx:run` gate check after Phase 1 scaffold
@@ -61,5 +64,5 @@ None
 ## Session Continuity
 
 **Last updated:** 2026-05-12
-**Stopped at:** Phase 3 planned — 2 plans verified and committed
-**Next action:** /gsd-execute-phase 3 — Wave 1: CSS feedback classes; Wave 2: PrimaryController full game loop
+**Stopped at:** Phase 3 complete — all plans executed, verified, human-approved
+**Next action:** /gsd-discuss-phase 4 — Level Progression + Polish (8 levels, end-of-episode evaluation, overlays)

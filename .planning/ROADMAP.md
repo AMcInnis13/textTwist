@@ -6,7 +6,7 @@
 
 - [x] **Phase 1: Scaffold + Pure Java Model** - Maven project runs; dictionary and game model fully unit-tested *(Complete: 2026-05-12)*
 - [x] **Phase 2: FXML Layout + CSS** - Game screen renders with all UI regions styled; no logic yet *(Complete: 2026-05-12)*
-- [ ] **Phase 3: Core Game Loop** - Player can select letters, submit words, earn points, and play against the timer
+- [x] **Phase 3: Core Game Loop** - Player can select letters, submit words, earn points, and play against the timer *(Complete: 2026-05-12)*
 - [ ] **Phase 4: Level Progression + Polish** - All 8 levels function; game-over, win, and visual feedback states complete
 
 ---
@@ -74,10 +74,10 @@ Plans:
 Plans:
 
 **Wave 1**
-- [ ] 03-01-PLAN.md — CSS: rename .guess-correct to .guess-valid; add background fills to both feedback classes
+- [x] 03-01-PLAN.md — CSS: rename .guess-correct to .guess-valid; add background fills to both feedback classes
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 03-02-PLAN.md — PrimaryController: all fields, startGame, buildLetterButtons, all five handlers, onTick, endEpisode; human-verify full playable episode
+- [x] 03-02-PLAN.md — PrimaryController: all fields, startGame, buildLetterButtons, all five handlers, onTick, endEpisode; human-verify full playable episode
 
 ### Phase 4: Level Progression + Polish
 **Goal:** All 8 levels are completable from level 1 (3-letter) through level 8 (10-letter); end-of-episode evaluation (advance/game-over/win) works correctly; valid/invalid feedback is visually distinct
@@ -100,5 +100,5 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Scaffold + Pure Java Model | 3/3 | Complete | 2026-05-12 |
 | 2. FXML Layout + CSS | 3/3 | Complete | 2026-05-12 |
-| 3. Core Game Loop | 0/2 | Not started | - |
+| 3. Core Game Loop | 2/2 | Complete | 2026-05-12 |
 | 4. Level Progression + Polish | 0/? | Not started | - |
