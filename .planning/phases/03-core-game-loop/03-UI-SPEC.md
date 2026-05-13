@@ -46,7 +46,7 @@ These classes are already defined in `styles.css` and must be referenced by name
 | `.letter-btn:disabled` | used letter buttons | Opacity 0.4, gray `#555555` |
 | `.guess-display` | guessDisplay (HBox) | Dark panel `#16213e`, centered |
 | `.letter-slot` | Label children of guessDisplay | Gold tile, 18px monospace bold, `#1a1a2e` text |
-| `.guess-invalid` | guessDisplay HBox (temporary) | Red border `#e53935`, 2px width |
+| `.guess-invalid` | guessDisplay HBox (temporary) | Phase 2: red border `#e53935`, 2px width only; Phase 3 adds `-fx-background-color: #b71c1c` |
 | `.control-btn` | twistBtn, enterBtn, lastWordBtn, clearBtn | Dark blue `#0f3460`, 6px radius |
 | `.control-btn:disabled` | lastWordBtn (initial state) | Opacity 0.4 |
 | `.found-words-list` | foundWordsList (ListView) | Dark panel `#16213e` |
@@ -102,27 +102,39 @@ JavaFX uses `-fx-padding` with px values, not CSS custom properties. All padding
 Source: `styles.css` existing padding declarations; `primary.fxml` hgap/vgap.
 
 Exceptions:
-- Letter button padding: `10 14 10 14` (vertical 10, horizontal 14) — asymmetric for readability.
-- Letter slot padding: `8 10 8 10` — smaller than buttons; tiles are denser.
+- Letter button padding: `8 16 8 16` (vertical 8, horizontal 16) — asymmetric for readability; both values are multiples of 4.
+- Letter slot padding: `8 12 8 12` — smaller than buttons; tiles are denser; both values are multiples of 4.
 
 ---
 
 ## Typography
 
-All sizes pre-populated from `styles.css` Phase 2 declarations. Phase 3 adds no new font rules.
+All sizes pre-populated from `styles.css` Phase 2 declarations. Phase 3 adds no new font rules. Maximum 4 sizes, 2 weights.
 
 | Role | Size | Weight | Font Family | Node(s) |
 |------|------|--------|-------------|---------|
-| Body / info labels | 14px | bold | System | scoreLabel, levelLabel |
-| Found-words list cells | 13px | normal (400) | System | foundWordsList list-cells |
 | Section header | 11px | normal (400) | System | "FOUND WORDS" label |
-| Timer display | 24px | bold | monospace | timeLabel |
-| Letter buttons | 15px | bold | System | dynamically created letter Buttons |
-| Letter slot tiles | 18px | bold | monospace | Label children of guessDisplay |
+| Body / info labels | 14px | bold (700) | System | scoreLabel, levelLabel, foundWordsList list-cells |
+| Letter buttons + slot tiles | 18px | bold (700) | monospace | dynamically created letter Buttons; Label children of guessDisplay |
+| Timer display | 24px | bold (700) | monospace | timeLabel |
 
-Two weights in use: normal (400) for list cells and headers; bold (700) for all interactive elements and the timer. This is the maximum — Phase 3 introduces no new weights.
+Two weights in use: normal (400) for section headers; bold (700) for all interactive elements, info labels, and the timer. This is the maximum — Phase 3 introduces no new weights.
+
+Body text nodes at 14px (scoreLabel, levelLabel, list-cells on the dark `#16213e` background) must declare `-fx-line-spacing: 2;` in their CSS rules to maintain readability on the dark panel.
+
+Note on consolidations from Phase 2 draft:
+- List-cell size (was 13px) promoted to 14px — merged with body/info label tier.
+- Letter button size (was 15px) promoted to 18px — visually paired with letter slot tiles (both are gold `#f0a500` elements; shared size reinforces the grouping).
 
 Source: `styles.css` §3, §6, §8.
+
+---
+
+## Visuals
+
+Primary visual anchor: gold letter buttons (`.letter-btn`) in the center FlowPane.
+
+The dark navy root (`#1a1a2e`) with secondary panel fills (`#16213e`) provides a receding backdrop. The gold accent (`#f0a500`) on letter buttons and slot tiles draws the eye to the active play area. Control buttons (`#0f3460`) recede visually to support — not compete with — the letter elements.
 
 ---
 
