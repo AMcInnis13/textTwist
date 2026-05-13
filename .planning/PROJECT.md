@@ -23,21 +23,27 @@ A fully playable game loop — the player can select letters, submit words, earn
 - [x] TwistController.shuffleLetters() returns scrambled letters of the target word as List<String>
 - [x] TwistController.checkGuessWord(String) validates and returns points (n*n*10) or 0
 
+*(Validated in Phase 2: FXML Layout + CSS — 2026-05-12)*
+- [x] JavaFX MVC GUI with FXML layout and external CSS file
+- [x] Guess word display showing letters in the order selected (up to 10)
+- [x] Scrollable list of successfully found words (no re-use allowed)
+- [x] Score / level / time display panel
+
+*(Validated in Phase 3: Core Game Loop — 2026-05-12)*
+- [x] Letter buttons (one per letter in current set), disabled when used, re-enabled on new guess
+- [x] Twist button: clears guess word, reshuffles letter set
+- [x] Enter button: validates guess word, awards points; submitting the target word ends episode
+- [x] Last Word button: repopulates guess with previous successful guess
+- [x] Clear button: clears guess word, returns all letters to the letter set
+- [x] 120-second countdown timer per episode, displayed as mm:ss
+- [x] Scoring: n*n*10 per valid n-letter word; cumulative and per-episode scores tracked
+
 ### Active
-- [ ] JavaFX MVC GUI with FXML layout and external CSS file
-- [ ] Letter buttons (one per letter in current set), disabled when used, re-enabled on new guess
-- [ ] Guess word display showing letters in the order selected (up to 10)
-- [ ] Scrollable list of successfully found words (no re-use allowed)
-- [ ] Score / level / time display panel
-- [ ] Twist button: clears guess word, reshuffles letter set
-- [ ] Enter button: validates guess word, awards points, advances level if full word guessed
-- [ ] Last Word button: repopulates guess with previous successful guess (for suffix additions)
-- [ ] Clear button: clears guess word, returns all letters to the letter set
-- [ ] 120-second countdown timer per episode, displayed as mm:ss
 - [ ] Level 1 starts with 3-letter word set; Level n requires n+2 letters (up to Level 8 = 10 letters)
 - [ ] End-of-episode evaluation: advance level / stay at level / game over based on score threshold
 - [ ] Minimum score to continue: floor(0.25 * max² * 10) where max = letter count
 - [ ] Game won when Level 8 (10-letter words) is completed
+- [ ] End-of-episode overlay/dialog showing result before board resets or stops
 
 ### Out of Scope
 
@@ -87,4 +93,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-12 — Phase 1 complete*
+*Last updated: 2026-05-12 — Phase 3 complete; Phase 4 (Level Progression + Polish) is next*
