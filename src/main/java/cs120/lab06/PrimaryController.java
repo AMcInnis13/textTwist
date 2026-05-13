@@ -216,8 +216,10 @@ public class PrimaryController {
         int threshold = (int)(0.25 * letterCount * letterCount * 10);
         boolean thresholdMet = twistController.getLevelScore() >= threshold;
 
+        javafx.stage.Window owner = timeLabel.getScene().getWindow();
         if (letterCount == 10 && (targetWordGuessed || thresholdMet)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initOwner(owner);
             alert.setTitle("TextTwist");
             alert.setHeaderText(null);
             alert.setContentText("You Win!");
@@ -227,6 +229,7 @@ public class PrimaryController {
             letterCount++;
             int newLevel = letterCount - 2;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initOwner(owner);
             alert.setTitle("TextTwist");
             alert.setHeaderText(null);
             alert.setContentText("Advanced to Level " + newLevel + "!");
@@ -234,6 +237,7 @@ public class PrimaryController {
             beginNextEpisode(letterCount);
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initOwner(owner);
             alert.setTitle("TextTwist");
             alert.setHeaderText(null);
             alert.setContentText("Game Over — not enough points.");
